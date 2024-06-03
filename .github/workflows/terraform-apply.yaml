@@ -12,13 +12,14 @@ jobs:
     env:
       ARM_CLIENT_ID: c489150e-3908-420e-821b-5b4307f1e620
       ARM_CLIENT_SECRET: xbJ8Q~LqcwykHBP43VXgkmDA6Ia1G5utqMd~cbA8
+      ARM_TENANT_ID: 48456e10-99db-484e-8e35-34286cf1eec0
       ARM_SUBSCRIPTION_ID: 069f9a67-70d9-4dc5-9e4a-b3e56d0d80af
 
     steps:
       - uses: actions/checkout@v2
 
       - name: Azure Login
-        run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_SUBSCRIPTION_ID
+        run: az login --service-principal -u $ARM_CLIENT_ID -p $ARM_CLIENT_SECRET --tenant $ARM_TENANT_ID
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
