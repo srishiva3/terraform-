@@ -1,16 +1,16 @@
 resource "azurerm_resource_group" "example" {
-  name     = var.resource_group_name
-  location = var.location
+  name     = "my_resource_group"  # Replace with your resource group name
+  location = "East US"  # Replace with your desired location
 }
 
 resource "azurerm_mysql_flexible_server" "example" {
-  name                = var.mysql_server_name
+  name                = "my_mysql_server"  # Replace with your MySQL server name
   resource_group_name = azurerm_resource_group.example.name
-  location            = var.location
-  administrator_login = var.mysql_admin_username
-  administrator_password = var.mysql_admin_password
+  location            = azurerm_resource_group.example.location
+  administrator_login = "admin_user"  # Replace with your desired admin username
+  administrator_password = "P@ssw0rd123!"  # Replace with your desired admin password
 
-  sku_name   = "YourValidSKUNameHere"  # Replace with a valid SKU name for MySQL Flexible Server
+  sku_name   = "Standard_D2s_v3"  # Replace with a valid SKU name for MySQL Flexible Server
   version    = "5.7"
   tags = {
     environment = "development"
@@ -18,7 +18,7 @@ resource "azurerm_mysql_flexible_server" "example" {
 }
 
 resource "azurerm_mysql_flexible_database" "example" {
-  name                = var.mysql_database_name
+  name                = "my_database"  # Replace with your database name
   resource_group_name = azurerm_resource_group.example.name
   server_name         = azurerm_mysql_flexible_server.example.name
   collation           = "utf8mb4_general_ci"
@@ -26,16 +26,16 @@ resource "azurerm_mysql_flexible_database" "example" {
 }
 
 resource "azurerm_service_plan" "example" {
-  name                = var.app_service_plan_name
-  location            = var.location
+  name                = "my_app_service_plan"  # Replace with your app service plan name
+  location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
-  os_type             = "Linux"  # Example, replace with the appropriate OS type
-  sku_name            = "YourValidSKUNameHere"  # Example, replace with the appropriate SKU name
+  sku_name            = "B1"  # Example, replace with the appropriate SKU name
+  kind                = "Linux"  # Example, replace with the appropriate OS type
 }
 
 resource "azurerm_app_service" "example" {
-  name                = var.app_service_name
-  location            = var.location
+  name                = "my_app_service"  # Replace with your app service name
+  location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   app_service_plan_id = azurerm_service_plan.example.id
 
@@ -55,7 +55,7 @@ resource "azurerm_app_service" "example" {
 }
 
 resource "azurerm_static_web_app" "example" {
-  name                = var.static_web_app_name
+  name                = "my_static_web_app"  # Replace with your static web app name
   resource_group_name = azurerm_resource_group.example.name
-  location            = var.location
+  location            = azurerm_resource_group.example.location
 }
