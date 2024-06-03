@@ -10,7 +10,7 @@ resource "azurerm_mysql_flexible_server" "example" {
   administrator_login = var.mysql_admin_username
   administrator_password = var.mysql_admin_password
 
-  sku_name   = "B_Gen5_1"  # Replace with a valid SKU name for MySQL Flexible Server
+  sku_name   = "GP_Gen5_2"  # Replace with a valid SKU name for MySQL Flexible Server
   version    = "5.7"
   tags = {
     environment = "development"
@@ -29,7 +29,6 @@ resource "azurerm_service_plan" "example" {
   name                = var.app_service_plan_name
   location            = var.location
   resource_group_name = azurerm_resource_group.example.name
-
   sku {
     tier = "Basic"
     size = "B1"
@@ -57,10 +56,13 @@ resource "azurerm_app_service" "example" {
   }
 }
 
-resource "azurerm_static_site" "example" {
+resource "azurerm_static_web_app" "example" {
   name                = var.static_web_app_name
   resource_group_name = azurerm_resource_group.example.name
   location            = var.location
 
-  sku_size = "Standard"  # Replace with the appropriate size
+  sku {
+    tier = "Standard"
+    size = "S1"
+  }
 }
