@@ -9,8 +9,16 @@ resource "azurerm_mysql_flexible_server" "example" {
   location            = azurerm_resource_group.example.location
   administrator_login = "admim11"  # Replace with your desired admin username
   administrator_password = "Welcome!11"  # Replace with your desired admin password
-  version = "8.0.21"
+
+  create_mode = "Default"
+  sku_name    = "Standard_D2ds_v4"  # Specify the desired SKU name here
+  version     = "8.0.21"
+  
+  tags = {
+    environment = "development"
+  }
 }
+
 
 
 resource "azurerm_mysql_flexible_database" "example" {
