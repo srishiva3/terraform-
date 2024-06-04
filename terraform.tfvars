@@ -1,5 +1,5 @@
 resource_group_name   = "my_resource_group"
-location              = "East US2"
+location              = "east US2"
 mysql_server_name     = "my_mysql_server"
 mysql_admin_username  = "new_mysql_admin_username"
 mysql_admin_password  = "new_mysql_admin_password"
