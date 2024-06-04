@@ -10,11 +10,14 @@ resource "azurerm_mysql_flexible_server" "example" {
   administrator_login = "admim11"  # Replace with your desired admin username
   administrator_password = "Welcome!11"  # Replace with your desired admin password
 
-  version    = "5.7"
+  create_mode = "Default"
+  sku_name    = "GP_Gen5_2"
+  version     = "5.7"
   tags = {
     environment = "development"
   }
 }
+
 
 resource "azurerm_mysql_flexible_database" "example" {
   name                = "my-database"  # Replace with your database name
@@ -33,7 +36,7 @@ resource "azurerm_service_plan" "example" {
 }
 
 resource "azurerm_app_service" "example" {
-  name                = "my-app-service"  # Replace with your app service name
+  name                = "revhireappservice1909"  # Replace with your app service name
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
   app_service_plan_id = azurerm_service_plan.example.id
