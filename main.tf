@@ -9,10 +9,7 @@ resource "azurerm_mysql_flexible_server" "example" {
   location            = azurerm_resource_group.example.location
   administrator_login = "admim11"  # Replace with your desired admin username
   administrator_password = "Welcome!11"  # Replace with your desired admin password
-  sku {
-    tier = "Basic"
-    size = "B1"
-  }
+  version = "12.0"
 }
 
 
