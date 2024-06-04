@@ -1,10 +1,10 @@
 resource "azurerm_resource_group" "example" {
   name     = "my_resource_group"  # Replace with your resource group name
-  location = "East US"  # Replace with your desired location
+  location = "East US2"  # Replace with your desired location
 }
 
 resource "azurerm_mysql_flexible_server" "example" {
-  name                = "my-mysql-server"  # Replace with your MySQL server name
+  name                = "myrevhireserver"  # Replace with your MySQL server name
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   administrator_login = "admim11"  # Replace with your desired admin username
