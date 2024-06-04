@@ -11,7 +11,7 @@ resource "azurerm_mysql_flexible_server" "example" {
   administrator_password = "Welcome!11"  # Replace with your desired admin password
 
   create_mode = "Default"
-  sku_name    = "B_Gen5_1"
+  sku_name    = "Standard_B1ms"
   version     = "5.7"
   tags = {
     environment = "development"
