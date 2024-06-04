@@ -7,10 +7,9 @@ resource "azurerm_mysql_flexible_server" "example" {
   name                = "my-mysql-server"  # Replace with your MySQL server name
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
-  administrator_login = "admin_user"  # Replace with your desired admin username
-  administrator_password = "P@ssw0rd123!"  # Replace with your desired admin password
+  administrator_login = "admim11"  # Replace with your desired admin username
+  administrator_password = "Welcome!11"  # Replace with your desired admin password
 
-  sku   = "Standard_D2s_v3"  # Replace with a valid SKU name for MySQL Flexible Server
   version    = "5.7"
   tags = {
     environment = "development"
