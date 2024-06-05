@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ARM_CLIENT_ID: a4a6dff2-305d-4952-886e-d5cd55fa6e0c
-      ARM_CLIENT_SECRET: N138Q~qSG.SCchUxhMC89oJX5jxHVI1YLENjvclr
-      ARM_TENANT_ID: 5758ba81-3562-4fdb-9792-9afa5fb9e154
-      ARM_SUBSCRIPTION_ID: ba3f5e3d-80c4-464d-bdcf-53a2c90965f4
+      ARM_CLIENT_ID:
+      ARM_CLIENT_SECRET: 
+      ARM_TENANT_ID: 
+      ARM_SUBSCRIPTION_ID: 
 
     steps:
       - uses: actions/checkout@v2
