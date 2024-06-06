@@ -1,6 +1,6 @@
 resource "azurerm_resource_group" "example" {
   name     = "my_resource_group"  # Replace with your resource group name
-  location = "East US2"  # Replace with your desired location
+  location = "East US"  # Replace with your desired location
 }
 
 resource "azurerm_mysql_flexible_server" "example" {
