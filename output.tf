@@ -1,6 +1,9 @@
+// outputs.tf
 
+output "resource_group_id" {
+  value = azurerm_resource_group.example.id
+}
 
-
-output "app_service_default_hostname" {
-  value = azurerm_app_service.example.default_site_hostname
+output "resource_group_location" {
+  value = azurerm_resource_group.example.location
 }
